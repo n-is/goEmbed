@@ -1,0 +1,16 @@
+Running tool: C:\Go\bin\go.exe test -benchmem -run=^$ github.com\user\lua\tests -bench ^(BenchmarkLuaTreeM20|BenchmarkLuaTree0|BenchmarkLuaTree2|BenchmarkLuaTree4|BenchmarkLuaTree8|BenchmarkLuaTree10|BenchmarkLuaTree15|BenchmarkLuaTree20)$
+
+goos: windows
+goarch: amd64
+pkg: github.com/user/lua/tests
+BenchmarkLuaTreeM20-8   	  500558	        3333 ns/op	       3208 B/op	       21 allocs/op
+BenchmarkLuaTree0-8     	     511	     2156655 ns/op	     495075 B/op	     6577 allocs/op
+BenchmarkLuaTree2-8     	     656	     1908005 ns/op	     495090 B/op	     6579 allocs/op
+BenchmarkLuaTree4-8     	     640	     2004013 ns/op	     495090 B/op	     6579 allocs/op
+BenchmarkLuaTree8-8     	     100	    10970276 ns/op	    2890158 B/op	    38535 allocs/op
+BenchmarkLuaTree10-8    	      18	    67707822 ns/op	   15232070 B/op	   203257 allocs/op
+BenchmarkLuaTree15-8    	       1	  2868357700 ns/op	  722619368 B/op	  9650788 allocs/op
+BenchmarkLuaTree20-8    	       1	147915245300 ns/op	34410845928 B/op	459869159 allocs/op
+PASS
+ok  	github.com/user/lua/tests	160.519s
+Success: Benchmarks passed.

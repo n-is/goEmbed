@@ -1,0 +1,69 @@
+{
+    "machine_info": {
+        "node": "DESKTOP-HV887AS",
+        "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+        "machine": "AMD64",
+        "python_compiler": "MSC v.1916 64 bit (AMD64)",
+        "python_implementation": "CPython",
+        "python_implementation_version": "3.7.4",
+        "python_version": "3.7.4",
+        "python_build": [
+            "tags/v3.7.4:e09359112e",
+            "Jul  8 2019 20:34:20"
+        ],
+        "release": "10",
+        "system": "Windows",
+        "cpu": {
+            "vendor_id": "GenuineIntel",
+            "hardware": "unknown",
+            "brand": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz"
+        }
+    },
+    "commit_info": {
+        "id": "unversioned",
+        "time": null,
+        "author_time": null,
+        "dirty": false,
+        "project": "tests",
+        "branch": "(unknown)"
+    },
+    "benchmarks": [
+        {
+            "group": "Binary Tree",
+            "name": "test_nbodyM20",
+            "fullname": "scripts/python/tree_test.py::test_nbodyM20",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.0771632194519043e-07,
+                "max": 2.1839618682861327e-07,
+                "mean": 1.2630979310382497e-07,
+                "stddev": 2.4168633248161372e-08,
+                "rounds": 88,
+                "median": 1.166982650756836e-07,
+                "iqr": 2.1915912628173816e-08,
+                "q1": 1.0974705219268799e-07,
+                "q3": 1.316629648208618e-07,
+                "iqr_outliers": 7,
+                "stddev_outliers": 11,
+                "outliers": "11;7",
+                "ld15iqr": 1.0771632194519043e-07,
+                "hd15iqr": 1.7253184318542482e-07,
+                "ops": 7917042.49866052,
+                "total": 1.11152617931366e-05,
+                "iterations": 1000000
+            }
+        }
+    ],
+    "datetime": "2019-11-14T08:55:17.740997",
+    "version": "3.2.2"
+}

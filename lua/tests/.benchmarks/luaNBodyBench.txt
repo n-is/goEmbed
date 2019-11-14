@@ -1,0 +1,18 @@
+Running tool: C:\Go\bin\go.exe test -benchmem -run=^$ github.com\user\lua\tests -bench ^(BenchmarkNBody10|BenchmarkNBody50000000|BenchmarkLuaNBodyM20|BenchmarkLuaNBody0|BenchmarkLuaNBody10|BenchmarkLuaNBody100|BenchmarkLuaNBody1000|BenchmarkLuaNBody10000|BenchmarkLuaNBody100000|BenchmarkLuaNBody1000000|BenchmarkLuaNBody10000000)$
+
+goos: windows
+goarch: amd64
+pkg: github.com/user/lua/tests
+
+BenchmarkLuaNBodyM20-8        	   59860	       21651 ns/op	      11176 B/op	      166 allocs/op
+BenchmarkLuaNBody0-8          	   36794	       33367 ns/op	      12448 B/op	      170 allocs/op
+BenchmarkLuaNBody10-8         	    3004	      411159 ns/op	      38064 B/op	      272 allocs/op
+BenchmarkLuaNBody100-8        	     309	     3879583 ns/op	     268468 B/op	     1172 allocs/op
+BenchmarkLuaNBody1000-8       	      34	    37582097 ns/op	    2586487 B/op	    10227 allocs/op
+BenchmarkLuaNBody10000-8      	       3	   382094467 ns/op	   25770786 B/op	   100792 allocs/op
+BenchmarkLuaNBody100000-8     	       1	  4177082800 ns/op	  257611704 B/op	  1006424 allocs/op
+BenchmarkLuaNBody1000000-8    	       1         38613437000 ns/op	 2576016600 B/op	 10062725 allocs/op
+BenchmarkLuaNBody10000000-8   	       1	407160621700 ns/op	25760066424 B/op	100625744 allocs/op
+PASS
+ok  	github.com/user/lua/tests	468.751s
+Success: Benchmarks passed.

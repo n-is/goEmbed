@@ -1,0 +1,139 @@
+{
+    "machine_info": {
+        "node": "DESKTOP-HV887AS",
+        "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+        "machine": "AMD64",
+        "python_compiler": "MSC v.1916 64 bit (AMD64)",
+        "python_implementation": "CPython",
+        "python_implementation_version": "3.7.4",
+        "python_version": "3.7.4",
+        "python_build": [
+            "tags/v3.7.4:e09359112e",
+            "Jul  8 2019 20:34:20"
+        ],
+        "release": "10",
+        "system": "Windows",
+        "cpu": {
+            "vendor_id": "GenuineIntel",
+            "hardware": "unknown",
+            "brand": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz"
+        }
+    },
+    "commit_info": {
+        "id": "unversioned",
+        "time": null,
+        "author_time": null,
+        "dirty": false,
+        "project": "tests",
+        "branch": "(unknown)"
+    },
+    "benchmarks": [
+        {
+            "group": "Binary Tree",
+            "name": "test_nbodyM20",
+            "fullname": "scripts/python/tree_test.py::test_nbodyM20",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.0572004318237304e-07,
+                "max": 2.1445727348327638e-07,
+                "mean": 1.1788179519328665e-07,
+                "stddev": 1.7719264683331015e-08,
+                "rounds": 94,
+                "median": 1.0974359512329101e-07,
+                "iqr": 1.2989282608032214e-08,
+                "q1": 1.0865616798400879e-07,
+                "q3": 1.21645450592041e-07,
+                "iqr_outliers": 9,
+                "stddev_outliers": 13,
+                "outliers": "13;9",
+                "ld15iqr": 1.0572004318237304e-07,
+                "hd15iqr": 1.41646146774292e-07,
+                "ops": 8483074.068903811,
+                "total": 1.1080888748168945e-05,
+                "iterations": 1000000
+            }
+        },
+        {
+            "group": "Binary Tree",
+            "name": "test_nbody0",
+            "fullname": "scripts/python/tree_test.py::test_nbody0",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 0.0008274388313293458,
+                "max": 0.00218414306640625,
+                "mean": 0.0010887840344355657,
+                "stddev": 0.00033477034956599466,
+                "rounds": 65,
+                "median": 0.000917205810546875,
+                "iqr": 0.0003390288352966308,
+                "q1": 0.000847732424736023,
+                "q3": 0.0011867612600326538,
+                "iqr_outliers": 5,
+                "stddev_outliers": 13,
+                "outliers": "13;5",
+                "ld15iqr": 0.0008274388313293458,
+                "hd15iqr": 0.0017553091049194336,
+                "ops": 918.4557895527993,
+                "total": 0.0707709622383118,
+                "iterations": 100
+            }
+        },
+        {
+            "group": "Binary Tree",
+            "name": "test_nbody10",
+            "fullname": "scripts/python/tree_test.py::test_nbody10",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 0.02563159465789795,
+                "max": 0.05465381145477295,
+                "mean": 0.03281916550227574,
+                "stddev": 0.007622504252813434,
+                "rounds": 28,
+                "median": 0.03087315559387207,
+                "iqr": 0.011814475059509274,
+                "q1": 0.026329588890075684,
+                "q3": 0.03814406394958496,
+                "iqr_outliers": 0,
+                "stddev_outliers": 6,
+                "outliers": "6;0",
+                "ld15iqr": 0.02563159465789795,
+                "hd15iqr": 0.05465381145477295,
+                "ops": 30.470000827128224,
+                "total": 0.9189366340637208,
+                "iterations": 10
+            }
+        }
+    ],
+    "datetime": "2019-11-14T09:01:53.123176",
+    "version": "3.2.2"
+}

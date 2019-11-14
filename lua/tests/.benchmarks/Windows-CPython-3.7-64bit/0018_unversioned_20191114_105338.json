@@ -1,0 +1,139 @@
+{
+    "machine_info": {
+        "node": "DESKTOP-HV887AS",
+        "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+        "machine": "AMD64",
+        "python_compiler": "MSC v.1916 64 bit (AMD64)",
+        "python_implementation": "CPython",
+        "python_implementation_version": "3.7.4",
+        "python_version": "3.7.4",
+        "python_build": [
+            "tags/v3.7.4:e09359112e",
+            "Jul  8 2019 20:34:20"
+        ],
+        "release": "10",
+        "system": "Windows",
+        "cpu": {
+            "vendor_id": "GenuineIntel",
+            "hardware": "unknown",
+            "brand": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz"
+        }
+    },
+    "commit_info": {
+        "id": "unversioned",
+        "time": null,
+        "author_time": null,
+        "dirty": false,
+        "project": "tests",
+        "branch": "(unknown)"
+    },
+    "benchmarks": [
+        {
+            "group": "String",
+            "name": "test_concatNums",
+            "fullname": "scripts/python/concat_test.py::test_concatNums",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.4660835266113282e-07,
+                "max": 2.4833154678344724e-07,
+                "mean": 1.7092473963473707e-07,
+                "stddev": 2.5175299035698724e-08,
+                "rounds": 47,
+                "median": 1.6156792640686034e-07,
+                "iqr": 3.2377243041992195e-08,
+                "q1": 1.5187966823577881e-07,
+                "q3": 1.84256911277771e-07,
+                "iqr_outliers": 2,
+                "stddev_outliers": 7,
+                "outliers": "7;2",
+                "ld15iqr": 1.4660835266113282e-07,
+                "hd15iqr": 2.3836326599121094e-07,
+                "ops": 5850528.145527567,
+                "total": 8.033462762832639e-06,
+                "iterations": 1000000
+            }
+        },
+        {
+            "group": "String",
+            "name": "test_concatName",
+            "fullname": "scripts/python/concat_test.py::test_concatName",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.4760446548461915e-07,
+                "max": 3.0712032318115236e-07,
+                "mean": 1.8807920903870553e-07,
+                "stddev": 4.562710579435939e-08,
+                "rounds": 66,
+                "median": 1.6504406929016113e-07,
+                "iqr": 6.387758255004883e-08,
+                "q1": 1.51594877243042e-07,
+                "q3": 2.1547245979309083e-07,
+                "iqr_outliers": 0,
+                "stddev_outliers": 12,
+                "outliers": "12;0",
+                "ld15iqr": 1.4760446548461915e-07,
+                "hd15iqr": 3.0712032318115236e-07,
+                "ops": 5316908.791307211,
+                "total": 1.2413227796554563e-05,
+                "iterations": 1000000
+            }
+        },
+        {
+            "group": "String",
+            "name": "test_concatGreet",
+            "fullname": "scripts/python/concat_test.py::test_concatGreet",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.486053466796875e-07,
+                "max": 3.9108037948608397e-07,
+                "mean": 1.9408355384576515e-07,
+                "stddev": 5.513855669519116e-08,
+                "rounds": 61,
+                "median": 1.688690185546875e-07,
+                "iqr": 6.982463598251344e-08,
+                "q1": 1.5331554412841796e-07,
+                "q3": 2.231401801109314e-07,
+                "iqr_outliers": 1,
+                "stddev_outliers": 11,
+                "outliers": "11;1",
+                "ld15iqr": 1.486053466796875e-07,
+                "hd15iqr": 3.9108037948608397e-07,
+                "ops": 5152420.0798316095,
+                "total": 1.1839096784591676e-05,
+                "iterations": 1000000
+            }
+        }
+    ],
+    "datetime": "2019-11-14T10:54:14.464324",
+    "version": "3.2.2"
+}

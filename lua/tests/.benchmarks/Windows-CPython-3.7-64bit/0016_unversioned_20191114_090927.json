@@ -1,0 +1,209 @@
+{
+    "machine_info": {
+        "node": "DESKTOP-HV887AS",
+        "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+        "machine": "AMD64",
+        "python_compiler": "MSC v.1916 64 bit (AMD64)",
+        "python_implementation": "CPython",
+        "python_implementation_version": "3.7.4",
+        "python_version": "3.7.4",
+        "python_build": [
+            "tags/v3.7.4:e09359112e",
+            "Jul  8 2019 20:34:20"
+        ],
+        "release": "10",
+        "system": "Windows",
+        "cpu": {
+            "vendor_id": "GenuineIntel",
+            "hardware": "unknown",
+            "brand": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz"
+        }
+    },
+    "commit_info": {
+        "id": "unversioned",
+        "time": null,
+        "author_time": null,
+        "dirty": false,
+        "project": "tests",
+        "branch": "(unknown)"
+    },
+    "benchmarks": [
+        {
+            "group": "Binary Tree",
+            "name": "test_treeM20",
+            "fullname": "scripts/python/tree_test.py::test_treeM20",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.0671496391296387e-07,
+                "max": 3.311140537261963e-07,
+                "mean": 1.36330537174059e-07,
+                "stddev": 4.0200700041676933e-08,
+                "rounds": 92,
+                "median": 1.1619603633880615e-07,
+                "iqr": 4.5930743217468255e-08,
+                "q1": 1.1066365242004396e-07,
+                "q3": 1.565943956375122e-07,
+                "iqr_outliers": 4,
+                "stddev_outliers": 13,
+                "outliers": "13;4",
+                "ld15iqr": 1.0671496391296387e-07,
+                "hd15iqr": 2.2639298439025879e-07,
+                "ops": 7335113.766354912,
+                "total": 1.2542409420013425e-05,
+                "iterations": 1000000
+            }
+        },
+        {
+            "group": "Binary Tree",
+            "name": "test_tree0",
+            "fullname": "scripts/python/tree_test.py::test_tree0",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 0.0008174824714660644,
+                "max": 0.0031615281105041504,
+                "mean": 0.0010342066225252652,
+                "stddev": 0.0003908036127348783,
+                "rounds": 76,
+                "median": 0.0008477497100830078,
+                "iqr": 0.00026969075202941894,
+                "q1": 0.0008374929428100586,
+                "q3": 0.0011071836948394775,
+                "iqr_outliers": 7,
+                "stddev_outliers": 9,
+                "outliers": "9;7",
+                "ld15iqr": 0.0008174824714660644,
+                "hd15iqr": 0.0015259218215942384,
+                "ops": 966.9247694027117,
+                "total": 0.0785997033119202,
+                "iterations": 100
+            }
+        },
+        {
+            "group": "Binary Tree",
+            "name": "test_tree10",
+            "fullname": "scripts/python/tree_test.py::test_tree10",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 0.025182604789733887,
+                "max": 0.052360713481903076,
+                "mean": 0.03074249164345338,
+                "stddev": 0.005859793141481229,
+                "rounds": 97,
+                "median": 0.027675926685333252,
+                "iqr": 0.008100062608718872,
+                "q1": 0.026111364364624023,
+                "q3": 0.034211426973342896,
+                "iqr_outliers": 2,
+                "stddev_outliers": 18,
+                "outliers": "18;2",
+                "ld15iqr": 0.025182604789733887,
+                "hd15iqr": 0.047373056411743164,
+                "ops": 32.52826776690204,
+                "total": 2.982021689414978,
+                "iterations": 4
+            }
+        },
+        {
+            "group": "Binary Tree",
+            "name": "test_tree15",
+            "fullname": "scripts/python/tree_test.py::test_tree15",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 1.315479040145874,
+                "max": 2.419527292251587,
+                "mean": 1.643883534840175,
+                "stddev": 0.380695594171742,
+                "rounds": 7,
+                "median": 1.48502516746521,
+                "iqr": 0.36604559421539307,
+                "q1": 1.401477038860321,
+                "q3": 1.7675226330757141,
+                "iqr_outliers": 1,
+                "stddev_outliers": 1,
+                "outliers": "1;1",
+                "ld15iqr": 1.315479040145874,
+                "hd15iqr": 2.419527292251587,
+                "ops": 0.6083156007139058,
+                "total": 11.507184743881226,
+                "iterations": 1
+            }
+        },
+        {
+            "group": "Binary Tree",
+            "name": "test_tree20",
+            "fullname": "scripts/python/tree_test.py::test_tree20",
+            "params": null,
+            "param": null,
+            "extra_info": {},
+            "options": {
+                "disable_gc": true,
+                "timer": "time",
+                "min_rounds": 5,
+                "max_time": 10.0,
+                "min_time": 0.1,
+                "warmup": false
+            },
+            "stats": {
+                "min": 74.11673164367676,
+                "max": 74.11673164367676,
+                "mean": 74.11673164367676,
+                "stddev": 0,
+                "rounds": 1,
+                "median": 74.11673164367676,
+                "iqr": 0.0,
+                "q1": 74.11673164367676,
+                "q3": 74.11673164367676,
+                "iqr_outliers": 0,
+                "stddev_outliers": 0,
+                "outliers": "0;0",
+                "ld15iqr": 74.11673164367676,
+                "hd15iqr": 74.11673164367676,
+                "ops": 0.013492230132429412,
+                "total": 74.11673164367676,
+                "iterations": 1
+            }
+        }
+    ],
+    "datetime": "2019-11-14T09:12:57.092024",
+    "version": "3.2.2"
+}
