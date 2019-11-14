@@ -10,3 +10,10 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Python cache files
+__pycache__
+.pytest_cache
+
+# Custom vscode settings
+.vscode
