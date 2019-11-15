@@ -54,5 +54,5 @@ jobs:
     
     -name: Run Tests
       run: |
-      cd lua/tests
-      go test -v .
+        cd lua/tests
+        go test -v .
