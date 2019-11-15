@@ -1,4 +1,7 @@
-# lua-helper
+# Lua-Helper
+
+.. image:: https://godoc.org/github.com/n-is/lua-helper/lua?status.svg
+    :target: https://godoc.org/github.com/n-is/lua-helper/lua
 
 A helper repository for gopher-lua, to make coding easier. Contains some tests
 and benchmarking codes, to compare the performance with python3.
