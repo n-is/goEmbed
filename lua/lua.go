@@ -128,7 +128,7 @@ func (l *LuaScript) RunGetBool() bool {
 	output := l.state.ToBool(-1)
 	l.state.Pop(1)
 
-	return bool(output)
+	return output
 }
 
 // RunGetMap runs the lua script with the configured variables.
