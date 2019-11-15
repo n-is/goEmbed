@@ -9,5 +9,5 @@ env:
 before_install:
   - go get github.com/n-is/gopher-lua
 script:
-  - cd lua; go test
-  - go test -v ./...
+  - cd lua; go test -v
+  - go test -v
