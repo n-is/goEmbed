@@ -1,3 +1,5 @@
+// Package lua provides the helper functions for loading a lua script in a
+// sandbox environment, and running it multiple times.
 package lua
 
 import (
@@ -7,16 +9,26 @@ import (
 	lua "github.com/n-is/gopher-lua"
 )
 
-// LuaScript is a struct that makes loading the script and interacting with it
+// LuaScript is for loading the script and make interacting with lua scripts
 // easier.
 type LuaScript struct {
 	state        *lua.LState
 	loadedScript *lua.LFunction
 }
 
-// Generate a new lua script using the source code
+// NewLuaScript generate a new LuaScript using the source code
 // The script is loaded and saved, so it can be run multiple times, without
 // loading again
+//
+// Currently supported libraries(libs) are:
+// 	"table"
+// 	"io"
+// 	"os"
+// 	"string"
+// 	"math"
+// 	"debug"
+// 	"channel"
+// 	"coroutine"
 func NewLuaScript(src []byte, libs ...string) *LuaScript {
 	L := lua.NewState(lua.Options{
 		RegistrySize:        1024 * 20,
@@ -26,7 +38,7 @@ func NewLuaScript(src []byte, libs ...string) *LuaScript {
 	})
 
 	// Load Base Library (Minimum library required to run basic scripts)
-	L.OpenLib("")
+	L.OpenLibs("", "package")
 
 	// Load the remaining libraries
 	L.OpenLibs(libs...)
