@@ -30,6 +30,7 @@ jobs:
         go build -v .
         
   test:
+    needs: [build]
     name: Test
     runs-on: ubuntu-latest
     steps:
