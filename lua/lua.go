@@ -16,9 +16,9 @@ type LuaScript struct {
 	loadedScript *lua.LFunction
 }
 
-// NewLuaScript generate a new LuaScript using the source code
+// NewLuaScript generate a new LuaScript using the source code.
 // The script is loaded and saved, so it can be run multiple times, without
-// loading again
+// loading again.
 //
 // Currently supported libraries(libs) are:
 // 	"table"
@@ -55,23 +55,23 @@ func NewLuaScript(src []byte, libs ...string) *LuaScript {
 	return &LuaScript{state: L, loadedScript: loadedScript}
 }
 
-// SetGlobalString sets a string as a global variable in the lua script
-// Running with same varName overrides the earlier value of variable
+// SetGlobalString sets a string as a global variable in the lua script.
+// Running with same varName overrides the earlier value of variable.
 func (l *LuaScript) SetGlobalString(varName, str string) {
 
 	l.state.SetGlobal(varName, lua.LString(str))
 }
 
-// SetGlobalBool sets a bool as a global variable in the lua script
-// Running with same varName overrides the earlier value of variable
+// SetGlobalBool sets a bool as a global variable in the lua script.
+// Running with same varName overrides the earlier value of variable.
 func (l *LuaScript) SetGlobalBool(varName string, b bool) {
 
 	l.state.SetGlobal(varName, lua.LBool(b))
 }
 
-// SetGlobalNumber sets a number as a global variable in the lua script
-// The number can be either a int, int32, int64, float32, float64
-// Running with same varName overrides the earlier value of variable
+// SetGlobalNumber sets a number as a global variable in the lua script.
+// The number can be either a int, int32, int64, float32, float64.
+// Running with same varName overrides the earlier value of variable.
 func (l *LuaScript) SetGlobalNumber(varName string, num interface{}) {
 
 	switch n := num.(type) {
@@ -80,18 +80,18 @@ func (l *LuaScript) SetGlobalNumber(varName string, num interface{}) {
 	}
 }
 
-// SetGlobalMap sets a map as a global variable in the lua script
-// The map is represented by a table in the lua script
-// Running with same varName overrides the earlier value of variable
+// SetGlobalMap sets a map as a global variable in the lua script.
+// The map is represented by a table in the lua script.
+// Running with same varName overrides the earlier value of variable.
 func (l *LuaScript) SetGlobalMap(varName string, m map[string]interface{}) {
 
-	tbl := pushMap(l.state, m)
+	tbl := createTable(l.state, m)
 	l.state.SetGlobal(varName, tbl)
 }
 
-// RunGetString runs the lua script with the configured variables
-// RunGetString considers the result of the running of the script to be a string
-// It extracts the string and returns it
+// RunGetString runs the lua script with the configured variables.
+// RunGetString considers the result of the running of the script to be a string.
+// It extracts the string and returns it.
 func (l *LuaScript) RunGetString() string {
 
 	l.state.Push(l.loadedScript)
@@ -103,9 +103,9 @@ func (l *LuaScript) RunGetString() string {
 	return output
 }
 
-// RunGetNumber runs the lua script with the configured variables
-// RunGetNumber considers the result of the running of the script to be a number
-// It extracts the number, converts it to int64 or float64, and returns it
+// RunGetNumber runs the lua script with the configured variables.
+// RunGetNumber considers the result of the running of the script to be a number.
+// It extracts the number, converts it to int64 or float64, and returns it.
 func (l *LuaScript) RunGetNumber() interface{} {
 
 	l.state.Push(l.loadedScript)
@@ -117,9 +117,9 @@ func (l *LuaScript) RunGetNumber() interface{} {
 	return parseLuaNumber(output)
 }
 
-// RunGetBool runs the lua script with the configured variables
-// RunGetBool considers the result of the running of the script to be a boolean
-// It extracts the boolean value and returns it
+// RunGetBool runs the lua script with the configured variables.
+// RunGetBool considers the result of the running of the script to be a boolean.
+// It extracts the boolean value and returns it.
 func (l *LuaScript) RunGetBool() bool {
 
 	l.state.Push(l.loadedScript)
@@ -131,9 +131,9 @@ func (l *LuaScript) RunGetBool() bool {
 	return bool(output)
 }
 
-// RunGetMap runs the lua script with the configured variables
-// RunGetMap considers the result of the running of the script to be a table
-// that holds a map[string]interface{}. It extracts the map and returns it
+// RunGetMap runs the lua script with the configured variables.
+// RunGetMap considers the result of the running of the script to be a table.
+// that holds a map[string]interface{}. It extracts the map and returns it.
 func (l *LuaScript) RunGetMap() map[string]interface{} {
 
 	l.state.Push(l.loadedScript)
@@ -146,12 +146,13 @@ func (l *LuaScript) RunGetMap() map[string]interface{} {
 	return output
 }
 
-func pushMap(state *lua.LState, m map[string]interface{}) *lua.LTable {
+// createTable creates a lua table from the provided map and return it.
+func createTable(state *lua.LState, m map[string]interface{}) *lua.LTable {
 	tbl := state.NewTable()
 	for k, v := range m {
 		switch v := v.(type) {
 		case map[string]interface{}:
-			t := pushMap(state, v)
+			t := createTable(state, v)
 			state.RawSetString(tbl, k, t)
 		default:
 			state.RawSetString(tbl, k, luaValueOf(v))
@@ -162,6 +163,7 @@ func pushMap(state *lua.LState, m map[string]interface{}) *lua.LTable {
 	return tbl
 }
 
+// luaValueOf gives the corresponding lua value of given go input variable.
 func luaValueOf(value interface{}) lua.LValue {
 	switch value := value.(type) {
 	case float64:
@@ -186,6 +188,7 @@ func luaValueOf(value interface{}) lua.LValue {
 	return lua.LNil
 }
 
+// goValueOf gives the corresponding go value of given lua input variable.
 func goValueOf(val lua.LValue) interface{} {
 	switch val := val.(type) {
 	case lua.LString:
@@ -201,7 +204,7 @@ func goValueOf(val lua.LValue) interface{} {
 	return nil
 }
 
-// Convert a Lua Table to a map if it represents a map
+// tableToGoMap converts a Lua Table to a map if it represents a map
 func tableToGoMap(table *lua.LTable) map[string]interface{} {
 	if length := table.Len(); length == 0 { // map
 		gomap := make(map[string]interface{})
@@ -219,7 +222,8 @@ func tableToGoMap(table *lua.LTable) map[string]interface{} {
 	return nil
 }
 
-// Convert Lua Number to int64 or float64 depending upon the tolerance(1e-10)
+// parseLuaNumber converts a Lua Number to int64 or float64 depending upon the
+// tolerance(1e-10)
 func parseLuaNumber(val lua.LNumber) interface{} {
 	num := float64(val)
 	nearNum := math.Round(num)
