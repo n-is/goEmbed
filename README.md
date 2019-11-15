@@ -22,7 +22,8 @@ Any file in [.benchmark/Windows-CPython-3.7-64bit](lua/tests/.benchmark/Windows-
 contains the detail info on the machine, on which the benchmarks were run.
 
 Following Programs are used for benchmarking purposes:
-..* Fibonacci Series
-..* String Concatenation
-..* NBody Simulation
-..* Binary Tree
+
+* Fibonacci Series
+* String Concatenation
+* NBody Simulation
+* Binary Tree
