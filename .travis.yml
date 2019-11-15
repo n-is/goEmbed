@@ -7,7 +7,9 @@ env:
     GO111MODULE=off
 
 before_install:
+  - go get github.com/mattn/goveralls
   - go get github.com/n-is/gopher-lua
 script:
   - go test -v ./...
   - cd lua; go build -v
+  - $GOPATH/bin/goveralls -service=travis-ci
