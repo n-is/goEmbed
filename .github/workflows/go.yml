@@ -28,3 +28,15 @@ jobs:
       run: |
         cd lua
         go build -v .
+      
+  test:
+    need: [build]
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Go to Tests folder
+      run: cd lua/tests
+    
+    -name: Run Tests
+      run: |
+        go test -v
