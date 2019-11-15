@@ -2,8 +2,8 @@ name: Go
 on: [push]
 jobs:
 
-  build:
-    name: Build
+  build_test:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
 
@@ -28,15 +28,8 @@ jobs:
       run: |
         cd lua
         go build -v .
-        
-  test:
-    needs: [build]
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-
+  
     - name: Test
       run: |
-        cd lua
         cd tests
         go test -v .
