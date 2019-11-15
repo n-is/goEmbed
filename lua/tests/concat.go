@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/user/lua"
+	"github.com/n-is/lua-helper/lua"
 )
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"

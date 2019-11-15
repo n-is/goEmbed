@@ -215,7 +215,8 @@ func parseLuaNumber(val lua.LNumber) interface{} {
 	tol := float64(1e-10)
 
 	if diff := math.Abs(num - nearNum); diff < tol {
-		return int64(num)
+		val := int64(nearNum)
+		return val
 	}
 
 	return num

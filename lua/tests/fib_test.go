@@ -25,7 +25,7 @@ func TestLuaFib(t *testing.T) {
 		{"LuaFib_65", args{n: 65}, 17167680177565},
 		{"LuaFib_75", args{n: 75}, 2111485077978050},
 		{"LuaFib_78", args{n: 78}, 8944394323791464},
-		// Output was 14472334024676220 (maybe due to rounding)
+		// Output was 14472334024676220 (due to rounding error)
 		// {"LuaFib_79", args{n: 79}, 14472334024676221},
 		{"LuaFib_-1", args{n: -1}, -1},   // Error Case
 		{"LuaFib_-2", args{n: -2}, -1},   // Error Case

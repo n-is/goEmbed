@@ -1,6 +1,6 @@
 package tests
 
-import "github.com/user/lua"
+import "github.com/n-is/lua-helper/lua"
 
 func SetupLuaTree() *lua.LuaScript {
 

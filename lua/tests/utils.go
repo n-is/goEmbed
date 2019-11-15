@@ -3,7 +3,7 @@ package tests
 import (
 	"io/ioutil"
 
-	"github.com/user/lua"
+	"github.com/n-is/lua-helper/lua"
 )
 
 func NewLuaFromFile(fileName string, libs ...string) *lua.LuaScript {
