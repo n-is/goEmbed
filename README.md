@@ -13,3 +13,6 @@ for testing and benchmarking the python scripts.
 [tests/.benchmark](lua/tests/.benchmark) contains the result of benchmarking.
 Any file in [.benchmark/Windows-CPython-3.7-64bit](lua/tests/.benchmark/Windows-CPython-3.7-64bit)
 contains the detail info on the machine, on which the benchmarks were run.
+
+Examples on using this package to load and run a lua script can be found in
+[examples_test.go](lua/examples_test.go).
