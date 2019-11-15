@@ -51,9 +51,8 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
-
-    - name: Go to Tests folder
-      run: cd lua/tests
     
     -name: Run Tests
-      run: go test -v .
+      run: |
+      cd lua/tests
+      go test -v .
