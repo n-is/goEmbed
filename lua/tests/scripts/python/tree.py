@@ -1,8 +1,4 @@
-
-import sys
-import multiprocessing as mp
-
-
+# Creates a binary tree of depth 'd'
 def make_tree(d):
 
     if d > 0:
@@ -18,12 +14,6 @@ def check_tree(node):
         return 1
     else:
         return 1 + check_tree(l) + check_tree(r)
-
-
-def make_check(itde, make=make_tree, check=check_tree):
-
-    i, d = itde
-    return check(make(d))
 
 
 def tree(n, min_depth=4):
