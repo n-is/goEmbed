@@ -1,7 +1,7 @@
 # Lua-Helper
 
 [![alt text](https://godoc.org/github.com/n-is/lua-helper/lua?status.svg)](https://godoc.org/github.com/n-is/lua-helper/lua)
-[![Build Status](https://travis-ci.org/n-is/lua-helper.svg?branch=master)](https://travis-ci.org/n-is/lua-helper)
+[![Build Status](https://travis-ci.org/n-is/lua-helper.svg)](https://travis-ci.org/n-is/lua-helper)
 [![Coverage Status](https://coveralls.io/repos/github/n-is/lua-helper/badge.svg)](https://coveralls.io/github/n-is/lua-helper?branch=master)
 
 A helper repository for gopher-lua, to make coding easier. Contains some tests
