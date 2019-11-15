@@ -1,6 +1,7 @@
 # Lua-Helper
 
 [![alt text](https://godoc.org/github.com/n-is/lua-helper/lua?status.svg)](https://godoc.org/github.com/n-is/lua-helper/lua)
+[![Build Status](https://travis-ci.org/n-is/lua-helper.svg?branch=master)](https://travis-ci.org/n-is/lua-helper)
 
 A helper repository for gopher-lua, to make coding easier. Contains some tests
 and benchmarking codes, to compare the performance with python3.
