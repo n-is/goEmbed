@@ -2,8 +2,8 @@ name: Go
 on: [push]
 jobs:
 
-  build:
-    name: Build
+  build_test:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
 
@@ -24,7 +24,7 @@ jobs:
             dep ensure
         fi
 
-    - name: Build
+    - name: Build and Test
       run: |
         cd lua
         go build -v .
