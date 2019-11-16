@@ -7,11 +7,10 @@ env:
     GO111MODULE=off
 
 before_install:
-  - go get -u github.com/mattn/goveralls
+  - go get github.com/mattn/goveralls
   - go get github.com/n-is/gopher-lua
   - go get github.com/n-is/tengo
 script:
-  - cd tengo; go build -v .; cd ..
-  - cd lua; go build -v .; cd ..
+  - go build ./...
   - go test -v ./...
   - $GOPATH/bin/goveralls -service=travis-ci

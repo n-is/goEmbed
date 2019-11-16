@@ -20,15 +20,9 @@ jobs:
       run: |
         go get -v -t -d ./...
 
-    - name: Build Lua Package
+    - name: Build Package
       run: |
-        cd lua
-        go build -v .
-
-    - name: Build Tengo Package
-      run: |
-        cd tengo
-        go build -v .
+        go build -v ./...
   
     - name: Test
       run: |
