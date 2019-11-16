@@ -11,7 +11,7 @@ func setupLuaTree() *lua.LuaScript {
 	return l
 }
 
-func LuaTree(l *lua.LuaScript, n int64) float64 {
+func luaTree(l *lua.LuaScript, n int64) float64 {
 
 	l.SetGlobalNumber("Input", n)
 

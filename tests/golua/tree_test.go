@@ -7,7 +7,7 @@ func benchmarkLuaTree(i int64, b *testing.B) {
 	tree := setupLuaTree()
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-		r = LuaTree(tree, i)
+		r = luaTree(tree, i)
 	}
 	resultNBody = r
 }
