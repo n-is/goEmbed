@@ -1,8 +1,8 @@
 # GoEmbed
 
-[![alt text](https://godoc.org/github.com/n-is/lua-helper/lua?status.svg)](https://godoc.org/github.com/n-is/lua-helper/lua)
-[![Build Status](https://travis-ci.org/n-is/lua-helper.svg)](https://travis-ci.org/n-is/lua-helper)
-[![Coverage Status](https://coveralls.io/repos/github/n-is/lua-helper/badge.svg)](https://coveralls.io/github/n-is/lua-helper?branch=master)
+[![alt text](https://godoc.org/github.com/n-is/goEmbed/lua?status.svg)](https://godoc.org/github.com/n-is/goEmbed/lua)
+[![Build Status](https://travis-ci.org/n-is/goEmbed.svg)](https://travis-ci.org/n-is/goEmbed)
+[![Coverage Status](https://coveralls.io/repos/github/n-is/goEmbed/badge.svg)](https://coveralls.io/github/n-is/goEmbed?branch=master)
 
 A helper repository for testing various languages that can be embedded in golang,
 in a sandboxed environment. Contains some tests and benchmarking codes, to
