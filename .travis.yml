@@ -9,6 +9,7 @@ env:
 before_install:
   - go get github.com/mattn/goveralls
   - go get github.com/n-is/gopher-lua
+  - go get github.com/n-is/tengo
 script:
   - go test -v ./...
   - cd lua; go build -v .; cd ..
