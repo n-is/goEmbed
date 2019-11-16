@@ -17,3 +17,6 @@ __pycache__
 
 # Custom vscode settings
 .vscode
+
+# Ignore coverage metric file
+*.cov
