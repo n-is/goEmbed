@@ -9,7 +9,7 @@ A helper repository for testing various languages that can be embedded in golang
 in a sandboxed environment. Contains some tests and benchmarking codes, to
 compare the performance with python3.
 
-Examples on using loa package to load and run a lua script can be found in
+Examples on using lua package to load and run a lua script can be found in
 [examples_test.go](lua/examples_test.go).
 
 [scripts/lua](tests/scripts/lua) contains lua test scripts that are loaded

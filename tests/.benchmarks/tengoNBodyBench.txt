@@ -3,14 +3,14 @@ Running tool: C:\Go\bin\go.exe test -benchmem -run=^$ github.com\n-is\goEmbed\te
 goos: windows
 goarch: amd64
 pkg: github.com/n-is/goEmbed/tests/gotengo
-BenchmarkTengoNBodyM20-8        	    1431	   1030091 ns/op	  385622 B/op	    5966 allocs/op
-BenchmarkTengoNBody0-8          	    1214	   1014588 ns/op	  387696 B/op	    6197 allocs/op
-BenchmarkTengoNBody10-8         	     760	   1663973 ns/op	  445122 B/op	   11049 allocs/op
-BenchmarkTengoNBody100-8        	     169	   7583286 ns/op	  961324 B/op	   54697 allocs/op
-BenchmarkTengoNBody1000-8       	      18	  58454839 ns/op	 6123650 B/op	  491197 allocs/op
-BenchmarkTengoNBody10000-8      	       2	 621339600 ns/op	57748772 B/op	 4856211 allocs/op
-BenchmarkTengoNBody100000-8     	       1	4712405900 ns/op	573992160 B/op	48506230 allocs/op
-BenchmarkTengoNBody1000000-8    	       1	39733853900 ns/op	5736438896 B/op	485006579 allocs/op
+BenchmarkTengoNBodyM20-8        	    1431	     1030091 ns/op	     385622 B/op	      5966 allocs/op
+BenchmarkTengoNBody0-8          	    1214	     1014588 ns/op	     387696 B/op	      6197 allocs/op
+BenchmarkTengoNBody10-8         	     760	     1663973 ns/op	     445122 B/op	     11049 allocs/op
+BenchmarkTengoNBody100-8        	     169	     7583286 ns/op	     961324 B/op	     54697 allocs/op
+BenchmarkTengoNBody1000-8       	      18	    58454839 ns/op	    6123650 B/op	    491197 allocs/op
+BenchmarkTengoNBody10000-8      	       2	   621339600 ns/op	   57748772 B/op	   4856211 allocs/op
+BenchmarkTengoNBody100000-8     	       1	  4712405900 ns/op	  573992160 B/op	  48506230 allocs/op
+BenchmarkTengoNBody1000000-8    	       1	 39733853900 ns/op	 5736438896 B/op	 485006579 allocs/op
 BenchmarkTengoNBody10000000-8   	       1	395210228600 ns/op	57360845544 B/op	4850009470 allocs/op
 PASS
 ok  	github.com/n-is/goEmbed/tests/gotengo	449.099s
