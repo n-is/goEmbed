@@ -1,0 +1,27 @@
+Running tool: C:\Go\bin\go.exe test -benchmem -run=^$ github.com\n-is\goEmbed\tests\gotengo -bench ^(BenchmarkTengoFibM20|BenchmarkTengoFibM1|BenchmarkTengoFib0|BenchmarkTengoFib1|BenchmarkTengoFib2|BenchmarkTengoFib3|BenchmarkTengoFib10|BenchmarkTengoFib20|BenchmarkTengoFib40|BenchmarkTengoFib60|BenchmarkTengoFib80|BenchmarkTengoFib100|BenchmarkTengoFib1000|BenchmarkTengoFib10000|BenchmarkTengoFib100000|BenchmarkTengoFib1000000|BenchmarkTengoFib10000000|BenchmarkTengoFib100000000|BenchmarkTengoFib1000000000)$
+
+goos: windows
+goarch: amd64
+pkg: github.com/n-is/goEmbed/tests/gotengo
+BenchmarkTengoFibM20-8          	   13006	      103598 ns/op	    136576 B/op	               695 allocs/op
+BenchmarkTengoFibM1-8           	   12388	       99183 ns/op	    136577 B/op	               695 allocs/op
+BenchmarkTengoFib0-8            	   12339	       99742 ns/op	    136562 B/op	               693 allocs/op
+BenchmarkTengoFib1-8            	   10000	      109311 ns/op	    136576 B/op	               695 allocs/op
+BenchmarkTengoFib2-8            	   10000	      108013 ns/op	    136581 B/op	               696 allocs/op
+BenchmarkTengoFib3-8            	   13090	      100267 ns/op	    136590 B/op	               698 allocs/op
+BenchmarkTengoFib10-8           	   10000	      101928 ns/op	    136709 B/op	               712 allocs/op
+BenchmarkTengoFib20-8           	   10000	      100533 ns/op	    136865 B/op	               732 allocs/op
+BenchmarkTengoFib40-8           	   10000	      105219 ns/op	    137195 B/op	               772 allocs/op
+BenchmarkTengoFib60-8           	   10000	      107313 ns/op	    137508 B/op	               812 allocs/op
+BenchmarkTengoFib80-8           	   10000	      109504 ns/op	    137832 B/op	               852 allocs/op
+BenchmarkTengoFib100-8          	    8964	      113819 ns/op	    138155 B/op	               892 allocs/op
+BenchmarkTengoFib1000-8         	    6332	      206807 ns/op	    152550 B/op	              2692 allocs/op
+BenchmarkTengoFib10000-8        	     986	     1135278 ns/op	    296551 B/op	             20692 allocs/op
+BenchmarkTengoFib100000-8       	     100	    10591636 ns/op	   1736544 B/op	            200692 allocs/op
+BenchmarkTengoFib1000000-8      	      12	    99982550 ns/op	  16136705 B/op	           2000693 allocs/op
+BenchmarkTengoFib10000000-8     	       1	  1035200800 ns/op	 160137120 B/op	          20000691 allocs/op
+BenchmarkTengoFib100000000-8    	       1	 10131955400 ns/op	 1600144824 B/op	 200000748 allocs/op
+BenchmarkTengoFib1000000000-8   	       1	102839908900 ns/op	16000235544 B/op	2000001346 allocs/op
+PASS
+ok  	github.com/n-is/goEmbed/tests/gotengo	138.085s
+Success: Benchmarks passed.

@@ -1,0 +1,16 @@
+Running tool: C:\Go\bin\go.exe test -benchmem -run=^$ github.com\n-is\goEmbed\tests\gotengo -bench ^(BenchmarkTengoTreeM20|BenchmarkTengoTree0|BenchmarkTengoTree2|BenchmarkTengoTree4|BenchmarkTengoTree8|BenchmarkTengoTree10|BenchmarkTengoTree15|BenchmarkTengoTree20)$
+
+goos: windows
+goarch: amd64
+pkg: github.com/n-is/goEmbed/tests/gotengo
+BenchmarkTengoTreeM20-8   	    1699	      691824 ns/op	    177684 B/op	             1622 allocs/op
+BenchmarkTengoTree0-8     	     312	     4353564 ns/op	    457312 B/op	            14740 allocs/op
+BenchmarkTengoTree2-8     	     231	     4459937 ns/op	    457226 B/op	            14740 allocs/op
+BenchmarkTengoTree4-8     	     235	     4502854 ns/op	    457290 B/op	            14741 allocs/op
+BenchmarkTengoTree8-8     	      54	    23031050 ns/op	   1819184 B/op	            78615 allocs/op
+BenchmarkTengoTree10-8    	       7	   143434314 ns/op	   8840148 B/op	           407840 allocs/op
+BenchmarkTengoTree15-8    	       1	  6466769000 ns/op	 411570864 B/op	         19291105 allocs/op
+BenchmarkTengoTree20-8    	       1	239604947400 ns/op	19607156304 B/op	919253319 allocs/op
+PASS
+ok  	github.com/n-is/goEmbed/tests/gotengo	260.347s
+Success: Benchmarks passed.

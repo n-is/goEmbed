@@ -1,0 +1,23 @@
+Running tool: C:\Go\bin\go.exe test -benchmem -run=^$ github.com\n-is\goEmbed\tests\gotengo -bench ^(BenchmarkTengoConcatNums|BenchmarkTengoConcatName|BenchmarkTengoConcatGreet|BenchmarkTengoConcat10|BenchmarkTengoConcat100|BenchmarkTengoConcat1000|BenchmarkTengoConcat10000|BenchmarkTengoConcat100000|BenchmarkTengoConcat1000000|BenchmarkTengoConcat10000000|BenchmarkTengoConcat100000000|BenchmarkTengoConcat200000000|BenchmarkTengoConcat400000000|BenchmarkTengoConcat600000000|BenchmarkTengoConcat900000000)$
+
+goos: windows
+goarch: amd64
+pkg: github.com/n-is/goEmbed/tests/gotengo
+BenchmarkTengoConcatNums-8        	   22524	     56144 ns/op	  123344 B/op	     321 allocs/op
+BenchmarkTengoConcatName-8        	   19166	     58385 ns/op	  123358 B/op	     321 allocs/op
+BenchmarkTengoConcatGreet-8       	   22873	     56513 ns/op	  123361 B/op	     321 allocs/op
+BenchmarkTengoConcat10-8          	   19659	     53065 ns/op	  123374 B/op	     321 allocs/op
+BenchmarkTengoConcat100-8         	   20120	     57352 ns/op	  123551 B/op	     321 allocs/op
+BenchmarkTengoConcat1000-8        	   21294	     62105 ns/op	  125393 B/op	     321 allocs/op
+BenchmarkTengoConcat10000-8       	   17851	     66765 ns/op	  143824 B/op	     321 allocs/op
+BenchmarkTengoConcat100000-8      	   10000	    102950 ns/op	  328146 B/op	     321 allocs/op
+BenchmarkTengoConcat1000000-8     	    1670	    677205 ns/op	 2130389 B/op	     321 allocs/op
+BenchmarkTengoConcat10000000-8    	     280	   4014214 ns/op	20128215 B/op	     321 allocs/op
+BenchmarkTengoConcat100000000-8   	      34	  33996415 ns/op	200131032 B/op	     321 allocs/op
+BenchmarkTengoConcat200000000-8   	      16	  71807981 ns/op	400130596 B/op	     321 allocs/op
+BenchmarkTengoConcat400000000-8   	       3	 349077933 ns/op	800129602 B/op	     321 allocs/op
+BenchmarkTengoConcat600000000-8   	       2	1280576800 ns/op	1200128336 B/op	     320 allocs/op
+BenchmarkTengoConcat900000000-8   	       1	1526343100 ns/op	1800126904 B/op	     321 allocs/op
+PASS
+ok  	github.com/n-is/goEmbed/tests/gotengo	198.422s
+Success: Benchmarks passed.
