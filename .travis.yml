@@ -11,7 +11,7 @@ before_install:
   - go get github.com/n-is/gopher-lua
   - go get github.com/n-is/tengo
 script:
-  # - cd lua; go build -v .; cd ..
-  # - cd tengo; go build -v .; cd ..
+  - cd tengo; go build -v .; cd ..
+  - cd lua; go build -v .; cd ..
   - go test -v ./...
   - $GOPATH/bin/goveralls -service=travis-ci
