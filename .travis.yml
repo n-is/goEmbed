@@ -11,5 +11,6 @@ before_install:
   - go get github.com/n-is/gopher-lua
 script:
   - go test -v ./...
-  - cd lua; go build -v
+  - cd lua; go build -v .; cd ..
+  - cd tengo; go build -v .; cd ..
   - $GOPATH/bin/goveralls -service=travis-ci
