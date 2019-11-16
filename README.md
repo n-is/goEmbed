@@ -1,6 +1,7 @@
 # GoEmbed
 
 [![alt text](https://godoc.org/github.com/n-is/goEmbed/lua?status.svg)](https://godoc.org/github.com/n-is/goEmbed/lua)
+[![Go Report Card](https://goreportcard.com/badge/github.com/n-is/goEmbed)](https://goreportcard.com/report/github.com/n-is/goEmbed)
 [![Build Status](https://travis-ci.org/n-is/goEmbed.svg)](https://travis-ci.org/n-is/goEmbed)
 [![Coverage Status](https://coveralls.io/repos/github/n-is/goEmbed/badge.svg)](https://coveralls.io/github/n-is/goEmbed?branch=master)
 
