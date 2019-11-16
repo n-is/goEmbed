@@ -7,7 +7,7 @@ env:
     GO111MODULE=off
 
 before_install:
-  - go get github.com/mattn/goveralls
+  - go get -u github.com/mattn/goveralls
   - go get github.com/n-is/gopher-lua
   - go get github.com/n-is/tengo
 script:
