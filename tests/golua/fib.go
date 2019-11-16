@@ -17,11 +17,7 @@ func luaFib(l *lua.LuaScript, n int) int64 {
 
 	output := l.RunGetNumber()
 
-	if out, ok := output.(int64); ok {
-		return out
-	}
-	// panic("Output is not int64")
-	return int64(output.(float64))
+	return output.(int64)
 }
 
 func fib(n int) int64 {
