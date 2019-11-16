@@ -1,48 +1,47 @@
 package tengo
 
-// import (
-// 	"reflect"
-// 	"testing"
-// )
+import (
+	"testing"
+)
 
-// func TestTengoScript_RunGetInt(t *testing.T) {
-// 	tr := NewTengoScript([]byte(`
-// 	fmt := import("fmt")
+func TestTengoScript_RunGetInt(t *testing.T) {
+	tr := NewTengoScript([]byte(`
+	fmt := import("fmt")
 
-// 	fmt.println(Input)
-// 	Output := Input
-// 	`), "fmt")
-// 	tests := []struct {
-// 		name  string
-// 		tr    *TengoScript
-// 		input interface{}
-// 		want  int64
-// 	}{
-// 		// TODO: Add test cases.
-// 		{"TestInt64", tr, int64(12), 12},
-// 		{"TestUint", tr, uint(13), 13},
-// 		{"TestUint16", tr, uint16(14), 14},
-// 		{"TestUint32", tr, uint32(15), 15},
-// 		{"TestUnsupportedType", tr, uint64(15), 1},
-// 	}
-// 	for _, tt := range tests {
-// 		t.Run(tt.name, func(t *testing.T) {
-// 			err := tt.tr.SetGlobal("Input", int64(1))
-// 			err = tt.tr.SetGlobal("Input", tt.input)
-// 			if err != nil {
-// 				_, ok1 := tt.input.(uint64)
-// 				ok := ok1
-// 				if !ok {
-// 					t.Error("No Error Shown for Unsupported Types")
-// 				}
-// 			}
-// 			tt.tr.Compile()
-// 			if got := tt.tr.RunGetInt(); got != tt.want {
-// 				t.Errorf("TengoScript.RunGetInt() = %v, want %v", got, tt.want)
-// 			}
-// 		})
-// 	}
-// }
+	fmt.println(Input)
+	Output := Input
+	`), "Output", "fmt")
+	tests := []struct {
+		name  string
+		tr    *TengoScript
+		input interface{}
+		want  int64
+	}{
+		// TODO: Add test cases.
+		{"TestInt64", tr, int64(12), 12},
+		{"TestUint", tr, uint(13), 13},
+		{"TestUint16", tr, uint16(14), 14},
+		{"TestUint32", tr, uint32(15), 15},
+		{"TestUnsupportedType", tr, uint64(15), 1},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			err := tt.tr.SetGlobal("Input", int64(1))
+			err = tt.tr.SetGlobal("Input", tt.input)
+			if err != nil {
+				_, ok1 := tt.input.(uint64)
+				ok := ok1
+				if !ok {
+					t.Error("No Error Shown for Unsupported Types")
+				}
+			}
+			tt.tr.Compile()
+			if got := tt.tr.RunGetInt(); got != tt.want {
+				t.Errorf("TengoScript.RunGetInt() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 
 // func TestTengoScript_RunGetMap(t *testing.T) {
 // 	tr := NewTengoScript([]byte(`
