@@ -3,7 +3,7 @@ package golua
 import (
 	"io/ioutil"
 
-	"github.com/n-is/goEmbed/lua"
+	"github.com/n-is/goEmbed/core/lua"
 )
 
 // NewLuaFromFile creates a LuaScript from a lua script in a file

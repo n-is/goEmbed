@@ -1,6 +1,6 @@
 package golua
 
-import "github.com/n-is/goEmbed/lua"
+import "github.com/n-is/goEmbed/core/lua"
 
 func SetupLuaNBody() *lua.LuaScript {
 
