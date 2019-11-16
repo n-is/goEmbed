@@ -23,12 +23,14 @@ jobs:
     - name: Build Package
       run: |
         go build -v ./...
-  
-    - name: Test
+
+    - name: Run Unit tests
       run: |
-        go test -v ./...
-      
-    - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@v1.0.1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        go test -race -covermode atomic -coverprofile=profile.cov ./...
+
+    - name: Send coverage
+      env:
+        COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        GO111MODULE=off go get github.com/mattn/goveralls
+        $(go env GOPATH)/bin/goveralls -coverprofile=profile.cov -service=github
