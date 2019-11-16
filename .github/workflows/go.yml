@@ -24,9 +24,9 @@ jobs:
       run: |
         go build -v ./...
 
-    - name: Run Unit tests
-      run: |
-        go test -v -covermode atomic -coverprofile="profile.cov" ./...
+    # - name: Run Unit tests
+    #   run: |
+    #     go test -v -covermode atomic -coverprofile="profile.cov" ./...
 
     - name: Send coverage
       env:
