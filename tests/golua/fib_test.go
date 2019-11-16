@@ -31,11 +31,11 @@ func TestLuaFib(t *testing.T) {
 		{"LuaFib_-2", args{n: -2}, -1},   // Error Case
 		{"LuaFib_-20", args{n: -20}, -1}, // Error Case
 	}
-	l := SetupLuaFib()
+	l := setupLuaFib()
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := LuaFib(l, tt.args.n); got != tt.want {
-				t.Errorf("LuaFib() = %v, want %v", got, tt.want)
+			if got := luaFib(l, tt.args.n); got != tt.want {
+				t.Errorf("luaFib() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -70,8 +70,8 @@ func TestFib(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Fib(tt.args.n); got != tt.want {
-				t.Errorf("Fib() = %v, want %v", got, tt.want)
+			if got := fib(tt.args.n); got != tt.want {
+				t.Errorf("fib() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -81,10 +81,10 @@ var resultFib int64
 
 func benchmarkLuaFib(i int, b *testing.B) {
 	var r int64
-	l := SetupLuaFib()
+	l := setupLuaFib()
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-		r = LuaFib(l, i)
+		r = luaFib(l, i)
 	}
 	resultFib = r
 }
@@ -112,7 +112,7 @@ func BenchmarkLuaFib1000000000(b *testing.B) { benchmarkLuaFib(1000000000, b) }
 func benchmarkFib(i int, b *testing.B) {
 	var r int64
 	for n := 0; n < b.N; n++ {
-		r = Fib(i)
+		r = fib(i)
 	}
 	resultFib = r
 }

@@ -2,11 +2,11 @@ package golua
 
 import "github.com/n-is/goEmbed/lua"
 
-func SetupLuaTree() *lua.LuaScript {
+func setupLuaTree() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("../scripts/lua/tree.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/tree.lua", libs...)
 
 	return l
 }

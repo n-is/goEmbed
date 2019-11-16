@@ -2,16 +2,16 @@ package golua
 
 import "github.com/n-is/goEmbed/lua"
 
-func SetupLuaNBody() *lua.LuaScript {
+func setupLuaNBody() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("../scripts/lua/nbody.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/nbody.lua", libs...)
 
 	return l
 }
 
-func LuaNBody(l *lua.LuaScript, n int64) float64 {
+func luaNBody(l *lua.LuaScript, n int64) float64 {
 
 	l.SetGlobalNumber("Input", n)
 

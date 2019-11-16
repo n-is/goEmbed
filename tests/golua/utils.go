@@ -6,8 +6,8 @@ import (
 	"github.com/n-is/goEmbed/lua"
 )
 
-// NewLuaFromFile creates a LuaScript from a lua script in a file
-func NewLuaFromFile(fileName string, libs ...string) *lua.LuaScript {
+// newLuaFromFile creates a LuaScript from a lua script in a file
+func newLuaFromFile(fileName string, libs ...string) *lua.LuaScript {
 
 	data, err := ioutil.ReadFile(fileName)
 

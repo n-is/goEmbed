@@ -2,16 +2,16 @@ package golua
 
 import "github.com/n-is/goEmbed/lua"
 
-func SetupLuaFib() *lua.LuaScript {
+func setupLuaFib() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("../scripts/lua/fib.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/fib.lua", libs...)
 
 	return l
 }
 
-func LuaFib(l *lua.LuaScript, n int) int64 {
+func luaFib(l *lua.LuaScript, n int) int64 {
 
 	l.SetGlobalNumber("Input", n)
 
@@ -25,7 +25,7 @@ func LuaFib(l *lua.LuaScript, n int) int64 {
 	}
 }
 
-func Fib(n int) int64 {
+func fib(n int) int64 {
 
 	if n < 0 {
 		return -1

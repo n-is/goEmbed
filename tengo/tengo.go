@@ -12,8 +12,8 @@ import (
 // TengoScript is for loading the script and make interacting with tengo scripts
 // easier.
 type TengoScript struct {
-	script   *script.Script
-	compiled *script.Compiled
+	script    *script.Script
+	compiled  *script.Compiled
 	outputVar string
 }
 

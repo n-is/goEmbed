@@ -4,7 +4,7 @@ import "testing"
 
 func benchmarkLuaTree(i int64, b *testing.B) {
 	var r float64
-	tree := SetupLuaTree()
+	tree := setupLuaTree()
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		r = LuaTree(tree, i)

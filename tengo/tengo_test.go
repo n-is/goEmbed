@@ -27,8 +27,8 @@ func TestTengoScript_RunGetInt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := tt.tr.SetGlobal("Input", int64(1))
-			err = tt.tr.SetGlobal("Input", tt.input)
+			tt.tr.SetGlobal("Input", int64(1))
+			err := tt.tr.SetGlobal("Input", tt.input)
 			if err != nil {
 				_, ok1 := tt.input.(uint64)
 				ok := ok1

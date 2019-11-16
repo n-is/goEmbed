@@ -13,16 +13,16 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-func SetupLuaConcat() *lua.LuaScript {
+func setupLuaConcat() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("../scripts/lua/concat.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/concat.lua", libs...)
 
 	return l
 }
 
-func LuaConcat(l *lua.LuaScript, m map[string]interface{}) string {
+func luaConcat(l *lua.LuaScript, m map[string]interface{}) string {
 
 	l.SetGlobalMap("Input", m)
 
@@ -31,7 +31,7 @@ func LuaConcat(l *lua.LuaScript, m map[string]interface{}) string {
 	return output
 }
 
-func RandString(n int) string {
+func randString(n int) string {
 	b := make([]byte, n)
 	for i := range b {
 		b[i] = letterBytes[rand.Int63()%int64(len(letterBytes))]

@@ -4,25 +4,25 @@ import (
 	"math"
 )
 
-func SetupNBodyDemo() *NBodySystems {
+func setupNBodyDemo() *nBodySystems {
 
-	return NewNBodySystem()
+	return newNBodySystem()
 }
 
-func RunNBodyDemo(bodies *NBodySystems, n int64) float64 {
+func runNBodyDemo(bodies *nBodySystems, n int64) float64 {
 
 	for i := int64(0); i < n; i++ {
-		bodies.Advance(0.01)
+		bodies.advance(0.01)
 	}
-	return bodies.Energy()
+	return bodies.energy()
 }
 
-type NBodySystems struct {
-	bodies []*Body
+type nBodySystems struct {
+	bodies []*body
 }
 
-func NewNBodySystem() *NBodySystems {
-	bodies := []*Body{Sun(), Jupiter(), Saturn(), Uranus(), Neptune()}
+func newNBodySystem() *nBodySystems {
+	bodies := []*body{sun(), jupiter(), saturn(), uranus(), neptune()}
 
 	px := float64(0)
 	py := float64(0)
@@ -35,10 +35,10 @@ func NewNBodySystem() *NBodySystems {
 	}
 	bodies[0].offsetMomentum(px, py, pz)
 
-	return &NBodySystems{bodies: bodies}
+	return &nBodySystems{bodies: bodies}
 }
 
-func (nb *NBodySystems) Advance(dt float64) {
+func (nb *nBodySystems) advance(dt float64) {
 	for i := 0; i < len(nb.bodies); i++ {
 		iBody := nb.bodies[i]
 		for j := i + 1; j < len(nb.bodies); j++ {
@@ -67,7 +67,7 @@ func (nb *NBodySystems) Advance(dt float64) {
 	}
 }
 
-func (nb *NBodySystems) Energy() float64 {
+func (nb *nBodySystems) energy() float64 {
 	var dx, dy, dz, distance float64
 	e := float64(0)
 
@@ -96,12 +96,12 @@ const (
 	DAYS_PER_YEAR = 365.24
 )
 
-type Body struct {
+type body struct {
 	x, y, z, vx, vy, vz, mass float64
 }
 
-func Jupiter() *Body {
-	p := &Body{
+func jupiter() *body {
+	p := &body{
 		x:    4.84143144246472090e+00,
 		y:    -1.16032004402742839e+00,
 		z:    -1.03622044471123109e-01,
@@ -114,8 +114,8 @@ func Jupiter() *Body {
 	return p
 }
 
-func Saturn() *Body {
-	p := &Body{
+func saturn() *body {
+	p := &body{
 		x:    8.34336671824457987e+00,
 		y:    4.12479856412430479e+00,
 		z:    -4.03523417114321381e-01,
@@ -128,8 +128,8 @@ func Saturn() *Body {
 	return p
 }
 
-func Uranus() *Body {
-	p := &Body{
+func uranus() *body {
+	p := &body{
 		x:    1.28943695621391310e+01,
 		y:    -1.51111514016986312e+01,
 		z:    -2.23307578892655734e-01,
@@ -142,8 +142,8 @@ func Uranus() *Body {
 	return p
 }
 
-func Neptune() *Body {
-	p := &Body{
+func neptune() *body {
+	p := &body{
 		x:    1.53796971148509165e+01,
 		y:    -2.59193146099879641e+01,
 		z:    1.79258772950371181e-01,
@@ -156,15 +156,15 @@ func Neptune() *Body {
 	return p
 }
 
-func Sun() *Body {
-	p := &Body{
+func sun() *body {
+	p := &body{
 		mass: SOLAR_MASS,
 	}
 
 	return p
 }
 
-func (b *Body) offsetMomentum(px, py, pz float64) {
+func (b *body) offsetMomentum(px, py, pz float64) {
 	b.vx = -px / SOLAR_MASS
 	b.vy = -py / SOLAR_MASS
 	b.vz = -pz / SOLAR_MASS

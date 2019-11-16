@@ -19,9 +19,9 @@ func TestNBodyDemo(t *testing.T) {
 		// {"10SecSim", args{n: 10}, -0.169059907},
 	}
 	for _, tt := range tests {
-		nb := SetupNBodyDemo()
+		nb := setupNBodyDemo()
 		t.Run(tt.name, func(t *testing.T) {
-			if got := RunNBodyDemo(nb, tt.args.n); math.Abs(got-tt.want) > 1e-8 {
+			if got := runNBodyDemo(nb, tt.args.n); math.Abs(got-tt.want) > 1e-8 {
 				t.Errorf("NBodyDemo() = %v, want %v", got, tt.want)
 			}
 		})
@@ -32,10 +32,10 @@ var resultNBody float64
 
 func benchmarkNBody(i int64, b *testing.B) {
 	var r float64
-	nb := SetupNBodyDemo()
+	nb := setupNBodyDemo()
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-		r = RunNBodyDemo(nb, i)
+		r = runNBodyDemo(nb, i)
 	}
 	resultNBody = r
 }
@@ -45,10 +45,10 @@ func BenchmarkNBody50000000(b *testing.B) { benchmarkNBody(50000000, b) }
 
 func benchmarkLuaNBody(i int64, b *testing.B) {
 	var r float64
-	nb := SetupLuaNBody()
+	nb := setupLuaNBody()
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-		r = LuaNBody(nb, i)
+		r = luaNBody(nb, i)
 	}
 	resultNBody = r
 }
