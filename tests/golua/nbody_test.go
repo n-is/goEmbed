@@ -1,6 +1,7 @@
 package golua
 
 import (
+	"errors"
 	"math"
 	"testing"
 )
@@ -26,6 +27,45 @@ func TestNBodyDemo(t *testing.T) {
 			}
 		})
 	}
+}
+
+func Test_luaNBody(t *testing.T) {
+	type args struct {
+		n int64
+	}
+	tests := []struct {
+		name string
+		args args
+		want interface{}
+	}{
+		// TODO: Add test cases.
+		{"10SecSim", args{n: 10}, float64(-0.16907302171469984)},
+		{"500SecSim", args{n: 500}, float64(-0.16902152766534373)},
+		{"M10SecSim", args{n: -10}, int64(0)},
+	}
+	for _, tt := range tests {
+		nb := setupLuaNBody()
+		t.Run(tt.name, func(t *testing.T) {
+			v, err := getFloat64(tt.want)
+			if err == nil {
+				if got := luaNBody(nb, tt.args.n); math.Abs(got-v) > 1e-8 {
+					t.Errorf("luaNBody() = %v, want %v", got, tt.want)
+				}
+			}
+		})
+	}
+}
+
+func getFloat64(v interface{}) (float64, error) {
+	switch v := v.(type) {
+	case int64:
+		return float64(v), nil
+	case float64:
+		return v, nil
+	case float32:
+		return float64(v), nil
+	}
+	return 0, errors.New("Unsupported Type")
 }
 
 var resultNBody float64

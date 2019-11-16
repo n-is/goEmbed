@@ -16,6 +16,10 @@ func TestLuaConcat(t *testing.T) {
 		{"Name", args{m: map[string]interface{}{"first": "Nischal", "last": "Nepal"}}, "NischalNepal"},
 		{"Greet", args{m: map[string]interface{}{"first": "Hello", "last": "World!!"}}, "HelloWorld!!"},
 	}
+	if len(randString(10)) != 10 {
+		t.Error("Length of generated strings incorrect")
+	}
+
 	l := setupLuaConcat()
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
