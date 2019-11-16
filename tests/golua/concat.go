@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/n-is/goEmbed/core/lua"
+	"github.com/n-is/goEmbed/lua"
 )
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
