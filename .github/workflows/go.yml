@@ -34,4 +34,5 @@ jobs:
       run: |
         GO111MODULE=off go get github.com/mattn/goveralls
         ls
-        $GOPATH/bin/goveralls -coverprofile="profile.cov" -service="Github Action"
+        echo $(go env GOPATH)
+        $(go env GOPATH)/bin/goveralls -coverprofile="profile.cov" -service="Github Action"
