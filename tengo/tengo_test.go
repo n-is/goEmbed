@@ -176,3 +176,29 @@ func TestTengoScript_RunGetFloat(t *testing.T) {
 		})
 	}
 }
+
+func TestTengoScript_Compile(t *testing.T) {
+	tr := NewTengoScript([]byte(`
+	fmt := import("fmt")
+	fmt.println("Hello World!!")
+	`), "Output")
+	tests := []struct {
+		name string
+		tr   *TengoScript
+	}{
+		// TODO: Add test cases.
+		// Error Case
+		{"Test1", tr},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			// Just Check to cover error case
+			defer func() {
+				if r := recover(); r == nil {
+					t.Error("Should Have Panicked!!")
+				}
+			}()
+			tt.tr.Compile()
+		})
+	}
+}
