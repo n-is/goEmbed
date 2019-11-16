@@ -10,6 +10,32 @@ import (
 	lua "github.com/n-is/gopher-lua"
 )
 
+func TestNewLuaScript(t *testing.T) {
+	type args struct {
+		src  []byte
+		libs []string
+	}
+	tests := []struct {
+		name string
+		args args
+	}{
+		// TODO: Add test cases.
+		// Error Case
+		{"Test1", args{[]byte("sakfj jhiuq3"), []string{}}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			// Just Check to cover error case
+			defer func() {
+				if r := recover(); r == nil {
+					t.Error("Should Have Panicked!!")
+				}
+			}()
+			NewLuaScript(tt.args.src, tt.args.libs...)
+		})
+	}
+}
+
 func TestLuaScript_RunGetString(t *testing.T) {
 	ls := NewLuaScript([]byte(`
 	value = "Hello "..Input
@@ -102,6 +128,28 @@ func TestLuaScript_RunGetMap(t *testing.T) {
 	}
 }
 
+func Test_goValueOf(t *testing.T) {
+	type args struct {
+		val lua.LValue
+	}
+	tests := []struct {
+		name string
+		args args
+		want interface{}
+	}{
+		// TODO: Add test cases.
+		{"TestBool", args{lua.LBool(true)}, true},
+		{"TestNil", args{lua.LNil}, nil},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := goValueOf(tt.args.val); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("goValueOf() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 func Test_luaValueOf(t *testing.T) {
 	type args struct {
 		value interface{}
@@ -150,6 +198,39 @@ func Test_parseLuaNumber(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := parseLuaNumber(tt.args.val); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("parseLuaNumber() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_tableToGoMap(t *testing.T) {
+
+	// Create a table that holds elements in array, so it doesn't represent
+	// just a map
+	ls := NewLuaScript([]byte(`
+	x = 10
+	return x
+	`))
+	tbl := createTable(ls.state, nil)
+	for i := 0; i < 5; i++ {
+		tbl.RawSetInt(i, lua.LNumber(i*i))
+	}
+
+	type args struct {
+		table *lua.LTable
+	}
+	tests := []struct {
+		name string
+		args args
+		want map[string]interface{}
+	}{
+		// TODO: Add test cases.
+		{"Test1", args{tbl}, nil},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := tableToGoMap(tt.args.table); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("tableToGoMap() = %v, want %v", got, tt.want)
 			}
 		})
 	}
