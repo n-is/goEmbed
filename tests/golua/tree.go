@@ -19,8 +19,7 @@ func luaTree(l *lua.LuaScript, n int64) float64 {
 
 	if out, ok := output.(float64); ok {
 		return out
-	} else {
-		// panic("Output is not float64")
-		return float64(output.(int64))
 	}
+	// panic("Output is not float64")
+	return float64(output.(int64))
 }
