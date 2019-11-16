@@ -1,0 +1,55 @@
+
+// Tree Implementation in Tengo
+
+math := import("math")
+
+BottomUpTree := func(depth) {
+        if depth > 0 {
+                depth = depth - 1
+                left := BottomUpTree(depth)
+                right := BottomUpTree(depth)
+                return [left, right]
+        }
+        return []
+}
+
+ItemCheck := func(tree) {
+        if tree[1] {
+                return 1 + ItemCheck(tree[0]) + ItemCheck(tree[1])
+        }
+        return 1
+}
+
+Tree := func(N) {
+        if N < 0 {
+                return 0
+        }
+
+        mindepth := 4
+        maxdepth := mindepth + 2
+        if maxdepth < N {
+                maxdepth = N
+        }
+
+        stretchdepth := maxdepth + 1
+        stretchtree := BottomUpTree(stretchdepth)
+        ItemCheck(stretchtree)
+
+        longlivedtree := BottomUpTree(maxdepth)
+        mmd := maxdepth + mindepth
+
+        for d := mindepth; d < stretchdepth; d += 2 {
+                iterations := math.pow(2, (mmd - d))
+                check := 0
+                for i := 0; i < iterations; i++ {
+                        check = check + ItemCheck(BottomUpTree(d))
+                }
+        }
+        ItemCheck(longlivedtree)
+
+        return 0
+}
+
+Test := func(N) {
+        return Tree(N)
+}

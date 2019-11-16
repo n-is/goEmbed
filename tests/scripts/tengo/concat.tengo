@@ -1,0 +1,9 @@
+concat := func(x, y) {
+
+        return (x + y)
+
+}
+
+Test := func(m) {
+        return concat(m["first"], m["last"])
+}
