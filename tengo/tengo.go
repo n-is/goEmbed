@@ -78,14 +78,13 @@ func (t *TengoScript) SetGlobal(varName string, val interface{}) error {
 // Compile compiles the loaded tengo script along with the provided global
 // variables.
 // Return error if the script could not be compiled.
-func (t *TengoScript) Compile() error {
+func (t *TengoScript) Compile() {
 
 	c, err := t.script.Compile()
 	if err != nil {
-		return err
+		panic(err)
 	}
 	t.compiled = c
-	return nil
 }
 
 // RunGetInt runs the tengo script with the configured variables.
