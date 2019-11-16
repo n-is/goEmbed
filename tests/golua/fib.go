@@ -1,12 +1,12 @@
-package tests
+package golua
 
-import "github.com/n-is/lua-helper/lua"
+import "github.com/n-is/goEmbed/lua"
 
 func SetupLuaFib() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("scripts/lua/fib.lua", libs...)
+	l := NewLuaFromFile("../scripts/lua/fib.lua", libs...)
 
 	return l
 }

@@ -1,10 +1,10 @@
-package tests
+package golua
 
 import (
 	"math/rand"
 	"time"
 
-	"github.com/n-is/lua-helper/lua"
+	"github.com/n-is/goEmbed/lua"
 )
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -17,7 +17,7 @@ func SetupLuaConcat() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("scripts/lua/concat.lua", libs...)
+	l := NewLuaFromFile("../scripts/lua/concat.lua", libs...)
 
 	return l
 }

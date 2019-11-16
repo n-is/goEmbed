@@ -1,17 +1,17 @@
-package tests
+package golua
 
-import "github.com/n-is/lua-helper/lua"
+import "github.com/n-is/goEmbed/lua"
 
-func SetupLuaTree() *lua.LuaScript {
+func SetupLuaNBody() *lua.LuaScript {
 
 	libs := []string{}
 
-	l := NewLuaFromFile("scripts/lua/tree.lua", libs...)
+	l := NewLuaFromFile("../scripts/lua/nbody.lua", libs...)
 
 	return l
 }
 
-func LuaTree(l *lua.LuaScript, n int64) float64 {
+func LuaNBody(l *lua.LuaScript, n int64) float64 {
 
 	l.SetGlobalNumber("Input", n)
 

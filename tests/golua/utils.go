@@ -1,9 +1,9 @@
-package tests
+package golua
 
 import (
 	"io/ioutil"
 
-	"github.com/n-is/lua-helper/lua"
+	"github.com/n-is/goEmbed/lua"
 )
 
 // NewLuaFromFile creates a LuaScript from a lua script in a file
