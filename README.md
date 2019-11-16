@@ -9,11 +9,14 @@ A helper repository for testing various languages that can be embedded in golang
 in a sandboxed environment. Contains some tests and benchmarking codes, to
 compare the performance with python3.
 
-Examples on using this package to load and run a lua script can be found in
+Examples on using loa package to load and run a lua script can be found in
 [examples_test.go](lua/examples_test.go).
 
 [scripts/lua](tests/scripts/lua) contains lua test scripts that are loaded
 using the [gopher-lua](https://github.com/n-is/gopher-lua) package, and run for
+benchmarking, using `go test`.
+[scripts/tengo](tests/scripts/tengo) contains tengo test scripts that are loaded
+using the [tengo](https://github.com/n-is/tengo) package, and run for
 benchmarking, using `go test`.
 [scripts/python](tests/scripts/python) contains python test scripts that
 perform identical work to the respective lua script. `pytest` module was used
