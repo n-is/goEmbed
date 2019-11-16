@@ -18,6 +18,7 @@ jobs:
 
     - name: Get dependencies
       run: |
+        go get github.com/n-is/goEmbed/...
         go get -v -t -d ./...
 
     - name: Build Package
@@ -26,6 +27,7 @@ jobs:
 
     - name: Run Unit tests
       run: |
+        ls
         go test -v -covermode atomic -coverprofile="profile.cov" ./...
 
     - name: Send coverage
