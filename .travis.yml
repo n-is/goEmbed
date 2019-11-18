@@ -11,13 +11,11 @@ matrix:
       before_install:
         - go get github.com/n-is/gopher-lua
         - go get github.com/n-is/tengo
-        - go get github.com/axw/gocov/gocov
         - go get github.com/mattn/goveralls
-        - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
         
       script:
         - go build ./...
-        - go test -v -race -covermode atomic -coverprofile="profile.cov" ./...
+        - go test -v -covermode atomic -coverprofile="profile.cov" ./...
         - $HOME/gopath/bin/goveralls -coverprofile="profile.cov" -service=travis-ci
 
 
