@@ -1,32 +1,36 @@
-matrix:
-  include:
-    - language: go
-      
-      go:
-        - "1.13.x"
-      env:
-        global:
-          GO111MODULE=off
-      
-      before_install:
-        - go get github.com/n-is/gopher-lua
-        - go get github.com/n-is/tengo
-        - go get github.com/mattn/goveralls
+os: [linux, windows]
+language: [go, python]
+
+jobs:
+  matrix:
+    include:
+      - language: go
         
-      script:
-        - go build ./...
-        - go test -v -covermode atomic -coverprofile="profile.cov" ./...
-        - $HOME/gopath/bin/goveralls -coverprofile="profile.cov" -service=travis-ci
+        go:
+          - "1.13.x"
+        env:
+          global:
+            GO111MODULE=off
+        
+        before_install:
+          - go get github.com/n-is/gopher-lua
+          - go get github.com/n-is/tengo
+          - go get github.com/mattn/goveralls
+          
+        script:
+          - go build ./...
+          - go test -v -covermode atomic -coverprofile="profile.cov" ./...
+          - $HOME/gopath/bin/goveralls -coverprofile="profile.cov" -service=travis-ci
 
 
-    - language: python
+      - language: python
 
-      python: 3.7
-      before_script:
-        - python -m pip install --upgrade pip
-        - pip install pytest
-        - pip install pytest-benchmark
-      
-      script:
-        - cd tests/scripts/python
-        - pytest --benchmark-skip
+        python: 3.7
+        before_script:
+          - python -m pip install --upgrade pip
+          - pip install pytest
+          - pip install pytest-benchmark
+        
+        script:
+          - cd tests/scripts/python
+          - pytest --benchmark-skip
