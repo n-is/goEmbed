@@ -1,19 +1,33 @@
-language: go
+matrix:
+  include:
+    -  language: go
+      
+      go:
+        - "1.13.x"
+      env:
+        global:
+          GO111MODULE=off
+      
+      before_install:
+        - go get github.com/n-is/gopher-lua
+        - go get github.com/n-is/tengo
+        - go get github.com/axw/gocov/gocov
+        - go get github.com/mattn/goveralls
+        - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
+        
+      script:
+        - go build ./...
+        - go test -v -race -covermode atomic -coverprofile="profile.cov" ./...
+        - $HOME/gopath/bin/goveralls -coverprofile="profile.cov" -service=travis-ci
 
-go:
-  - "1.13.x"
-env:
-  global:
-    GO111MODULE=off
+    - language: python
 
-before_install:
-  - go get github.com/n-is/gopher-lua
-  - go get github.com/n-is/tengo
-  - go get github.com/axw/gocov/gocov
-  - go get github.com/mattn/goveralls
-  - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
-  
-script:
-  - go build ./...
-  - go test -v -race -covermode atomic -coverprofile="profile.cov" ./...
-  - $HOME/gopath/bin/goveralls -coverprofile="profile.cov" -service=travis-ci
+      python: 3.7
+      before_script:
+        - cd tests/scripts/python
+        - python -m pip install --upgrade pip
+        - pip install pytest
+        - pip install pytest-benchmark
+      
+      script:
+        - pytest --benchmark-skip
