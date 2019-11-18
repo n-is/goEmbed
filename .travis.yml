@@ -31,7 +31,7 @@ matrix:
         - pip install python-coveralls
       
       script:
-        - cd tests/scripts/python
+        - cd tests/scripts
         - pytest --cov=. --benchmark-skip
       
       after_success:
