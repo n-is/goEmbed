@@ -1,4 +1,4 @@
-from nbody import *
+from .nbody import *
 import pytest
 import time
 

@@ -1,4 +1,4 @@
-from concat import *
+from .concat import *
 import pytest
 import time
 

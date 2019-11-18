@@ -1,4 +1,4 @@
-from fib import *
+from .fib import *
 import pytest
 import time
 

@@ -1,4 +1,4 @@
-from tree import *
+from .tree import *
 import pytest
 import time
 
