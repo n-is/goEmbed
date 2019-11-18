@@ -20,6 +20,7 @@ matrix:
         - go test -v -race -covermode atomic -coverprofile="profile.cov" ./...
         - $HOME/gopath/bin/goveralls -coverprofile="profile.cov" -service=travis-ci
 
+
     - language: python
 
       python: 3.7
@@ -27,12 +28,7 @@ matrix:
         - python -m pip install --upgrade pip
         - pip install pytest
         - pip install pytest-benchmark
-        - pip install pytest-cov
-        - pip install python-coveralls
       
       script:
-        - cd tests/scripts
-        - pytest --cov=. --benchmark-skip
-      
-      after_success:
-        - coveralls -d .coverage
+        - cd tests/scripts/python
+        - pytest --benchmark-skip
