@@ -1,6 +1,5 @@
-os: ["windows", "linux"]
-
 matrix:
+  os: ["windows", "linux"]
   include:
     - language: go
       
