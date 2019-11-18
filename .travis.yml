@@ -1,6 +1,4 @@
-os: [linux, windows]
-
-jobs:
+matrix:
   include:
     - language: go
       
