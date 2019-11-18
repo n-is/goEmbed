@@ -1,6 +1,7 @@
+os: linux
+
 jobs:
   include:
-    - os: linux
     - language: go
       
       go: "1.13.x"
