@@ -1,5 +1,9 @@
 os: linux
 
+language:
+  - go
+  - python
+
 jobs:
   include:
     - language: go
