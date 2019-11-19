@@ -9,7 +9,7 @@ def test_concat():
         assert concat(name) == "NischalNepal"
         greet = {"first": "Hello", "last":"World!!"}
         assert concat(greet) == "HelloWorld!!"
-        strs = genString(10)
+        strs = genString(10)[0]
         for key in strs:
                 assert len(strs[key]) == 10
 
