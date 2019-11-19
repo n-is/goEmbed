@@ -1,8 +1,6 @@
 os: linux
 
-language:
-  - go
-  - python
+language: ["go", "python"]
 
 jobs:
   include:
