@@ -21,3 +21,6 @@ __pycache__
 # Ignore coverage metric file
 *.cov
 .coverage
+
+# Ignore temporary files
+tmp/*
