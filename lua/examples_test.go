@@ -6,11 +6,38 @@ func ExampleNewLuaScript() {
 	ls := NewLuaScript([]byte(`
 	n = math.abs(-12)
 	return n
-	`), "math")
+	`))
+
+	availableFuncs := []string{"pow", "abs"}
+
+	ls1 := NewLuaScript([]byte(`
+	val = math.sqrt(2)
+	val = math.abs(val)
+	return val
+	`))
+
+	availableFuncs = []string{"sqrt", "abs"}
+
+	done := make(chan bool, 2)
+
+	go func() {
+		ls.OpenLib("math", availableFuncs...)
+		done <- true
+	}()
+	go func() {
+		ls1.OpenLib("math", availableFuncs...)
+		done <- true
+	}()
+
+	<-done
+	<-done
+
+	val1 := ls1.RunGetNumber()
 
 	val := ls.RunGetNumber()
-	fmt.Println(val)
-	// Output: 12
+
+	fmt.Printf("%0.3f, %d\n", val1, val)
+	// Output: 1.414, 12
 }
 
 func ExampleLuaScript_RunGetString() {
@@ -73,7 +100,11 @@ func ExampleLuaScript_SetGlobalBool() {
 func ExampleLuaScript_SetGlobalNumber() {
 	ls := NewLuaScript([]byte(`
 	return math.floor(Input)
-	`), "math")
+	`))
+
+	availableFuncs := []string{"floor", "pow", "abs"}
+
+	ls.OpenLib("math", availableFuncs...)
 
 	ls.SetGlobalNumber("Input", 12.1)
 	val := ls.RunGetNumber()
