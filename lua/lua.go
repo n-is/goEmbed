@@ -14,6 +14,7 @@ import (
 type LuaScript struct {
 	state        *lua.LState
 	loadedScript *lua.LFunction
+	libs         map[string]lua.ILibrary
 }
 
 // NewLuaScript generate a new LuaScript using the source code.
@@ -37,12 +38,6 @@ func NewLuaScript(src []byte, libs ...string) *LuaScript {
 		SkipOpenLibs:        true,
 	})
 
-	// Load Base Library (Minimum library required to run basic scripts)
-	L.OpenLibs("", "package")
-
-	// Load the remaining libraries
-	L.OpenLibs(libs...)
-
 	source := bytes.NewBuffer(src)
 
 	// Load the source code
@@ -52,7 +47,51 @@ func NewLuaScript(src []byte, libs ...string) *LuaScript {
 		panic(err)
 	}
 
-	return &LuaScript{state: L, loadedScript: loadedScript}
+	// Load Base Library (Minimum library required to run basic scripts)
+	openLibraries(L, "", "package")
+
+	// Load the remaining libraries
+	for _, lib := range libs {
+		if lib != "math" {
+			openLib(L, lib)
+		}
+	}
+
+	return &LuaScript{state: L, loadedScript: loadedScript,
+		libs: make(map[string]lua.ILibrary)}
+}
+
+// OpenLibs opens multiple libraries, with the provided functions
+func (l *LuaScript) OpenLibs() {
+	for name, lib := range l.libs {
+		l.state.Push(l.state.NewFunction(lib.Open))
+		l.state.Push(lua.LString(name))
+		l.state.Call(1, 0)
+	}
+}
+
+// AddLib adds a library to the script with given name and the functions
+// To open all functions in a lib, use "all" as argument for each library
+func (l *LuaScript) AddLib(lib string, funcs ...string) {
+	switch lib {
+	case "math":
+		ml := lua.NewMathLib()
+		ml.SetFuncs(funcs...)
+		l.libs[lib] = ml
+	case "os":
+		ol := lua.NewOsLib()
+		ol.SetFuncs(funcs...)
+		l.libs[lib] = ol
+	}
+}
+
+// AddFunc adds a function to the library with given name and f as backend
+// function
+func (l *LuaScript) AddFunc(lib, name string, f lua.LGFunction) {
+	if _, ok := l.libs[lib]; !ok {
+		l.AddLib(lib)
+	}
+	l.libs[lib].AddFunc(name, f)
 }
 
 // SetGlobalString sets a string as a global variable in the lua script.
