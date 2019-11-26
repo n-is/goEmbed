@@ -4,9 +4,7 @@ import "github.com/n-is/goEmbed/lua"
 
 func setupLuaTree() *lua.LuaScript {
 
-	libs := []string{}
-
-	l := newLuaFromFile("../scripts/lua/tree.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/tree.lua")
 
 	return l
 }

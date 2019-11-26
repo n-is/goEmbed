@@ -15,9 +15,7 @@ func init() {
 
 func setupLuaConcat() *lua.LuaScript {
 
-	libs := []string{}
-
-	l := newLuaFromFile("../scripts/lua/concat.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/concat.lua")
 
 	return l
 }

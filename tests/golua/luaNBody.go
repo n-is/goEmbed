@@ -4,9 +4,7 @@ import "github.com/n-is/goEmbed/lua"
 
 func setupLuaNBody() *lua.LuaScript {
 
-	libs := []string{}
-
-	l := newLuaFromFile("../scripts/lua/nbody.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/nbody.lua")
 
 	return l
 }

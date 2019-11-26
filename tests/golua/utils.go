@@ -7,7 +7,7 @@ import (
 )
 
 // newLuaFromFile creates a LuaScript from a lua script in a file
-func newLuaFromFile(fileName string, libs ...string) *lua.LuaScript {
+func newLuaFromFile(fileName string) *lua.LuaScript {
 
 	data, err := ioutil.ReadFile(fileName)
 
@@ -19,5 +19,5 @@ func newLuaFromFile(fileName string, libs ...string) *lua.LuaScript {
 	lastLine := []byte("\nreturn Test(Input)")
 	data = append(data, lastLine...)
 
-	return lua.NewLuaScript(data, libs...)
+	return lua.NewLuaScript(data)
 }

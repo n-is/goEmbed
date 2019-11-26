@@ -7,7 +7,6 @@ import (
 func Test_newLuaFromFile(t *testing.T) {
 	type args struct {
 		fileName string
-		libs     []string
 	}
 	tests := []struct {
 		name string
@@ -15,7 +14,7 @@ func Test_newLuaFromFile(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 		// Error Case
-		{"Test1", args{"sakfj jhiuq3", []string{}}},
+		{"Test1", args{"sakfj jhiuq3"}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_newLuaFromFile(t *testing.T) {
 					t.Error("Should Have Panicked!!")
 				}
 			}()
-			newLuaFromFile(tt.args.fileName, tt.args.libs...)
+			newLuaFromFile(tt.args.fileName)
 		})
 	}
 }

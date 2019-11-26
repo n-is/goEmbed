@@ -4,9 +4,7 @@ import "github.com/n-is/goEmbed/lua"
 
 func setupLuaFib() *lua.LuaScript {
 
-	libs := []string{}
-
-	l := newLuaFromFile("../scripts/lua/fib.lua", libs...)
+	l := newLuaFromFile("../scripts/lua/fib.lua")
 
 	return l
 }
