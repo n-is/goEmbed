@@ -1,14 +1,16 @@
 package lua
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func ExampleNewLuaScript() {
 	ls := NewLuaScript([]byte(`
 	n = math.abs(-12)
-	return n
+	-- os.exit()
+	y = math.half(n)
+	return y
 	`))
-
-	availableFuncs := []string{"pow", "abs"}
 
 	ls1 := NewLuaScript([]byte(`
 	val = math.sqrt(2)
@@ -16,16 +18,19 @@ func ExampleNewLuaScript() {
 	return val
 	`))
 
-	availableFuncs = []string{"sqrt", "abs"}
+	availableFuncs := []string{"sqrt", "abs"}
 
 	done := make(chan bool, 2)
 
 	go func() {
-		ls.OpenLib("math", availableFuncs...)
+		ls.AddLib("math", availableFuncs...)
+		ls.AddLib("os", "all")
+		ls.OpenLibs()
 		done <- true
 	}()
 	go func() {
-		ls1.OpenLib("math", availableFuncs...)
+		ls1.AddLib("math", availableFuncs...)
+		ls1.OpenLibs()
 		done <- true
 	}()
 
@@ -37,7 +42,7 @@ func ExampleNewLuaScript() {
 	val := ls.RunGetNumber()
 
 	fmt.Printf("%0.3f, %d\n", val1, val)
-	// Output: 1.414, 12
+	// Output: 1.414, 6
 }
 
 func ExampleLuaScript_RunGetString() {
@@ -104,7 +109,8 @@ func ExampleLuaScript_SetGlobalNumber() {
 
 	availableFuncs := []string{"floor", "pow", "abs"}
 
-	ls.OpenLib("math", availableFuncs...)
+	ls.AddLib("math", availableFuncs...)
+	ls.OpenLibs()
 
 	ls.SetGlobalNumber("Input", 12.1)
 	val := ls.RunGetNumber()

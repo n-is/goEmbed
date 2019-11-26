@@ -50,13 +50,6 @@ func NewLuaScript(src []byte, libs ...string) *LuaScript {
 	// Load Base Library (Minimum library required to run basic scripts)
 	openLibraries(L, "", "package")
 
-	// Load the remaining libraries
-	for _, lib := range libs {
-		if lib != "math" {
-			openLib(L, lib)
-		}
-	}
-
 	return &LuaScript{state: L, loadedScript: loadedScript,
 		libs: make(map[string]lua.ILibrary)}
 }
