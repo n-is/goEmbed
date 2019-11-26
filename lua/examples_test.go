@@ -8,9 +8,8 @@ import (
 
 func ExampleNewLuaScript() {
 	ls := NewLuaScript([]byte(`
-	n = math.abs(-12)
 	-- os.exit()
-	y = math.half(n)
+	y = math.half(12)
 	return y
 	`))
 
@@ -25,7 +24,6 @@ func ExampleNewLuaScript() {
 	done := make(chan bool, 2)
 
 	go func() {
-		ls.AddLib("math", availableFuncs...)
 		ls.AddLib("os", "all")
 
 		f := func(L *golua.LState) int {

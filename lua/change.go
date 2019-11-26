@@ -1,8 +1,6 @@
 package lua
 
 import (
-	"fmt"
-
 	lua "github.com/n-is/gopher-lua"
 )
 
@@ -14,24 +12,9 @@ func openLib(ls *lua.LState, libName string) {
 		libFunc = lua.OpenPackage
 	case lua.BaseLibName:
 		libFunc = lua.OpenBase
-	case lua.TabLibName:
-		libFunc = lua.OpenTable
-	case lua.IoLibName:
-		libFunc = lua.OpenIo
-	case lua.OsLibName:
-		libFunc = lua.OpenOs
-	case lua.StringLibName:
-		libFunc = lua.OpenString
-	case lua.MathLibName:
-		libFunc = lua.OpenMath
-	case lua.DebugLibName:
-		libFunc = lua.OpenDebug
-	case lua.ChannelLibName:
-		libFunc = lua.OpenChannel
-	case lua.CoroutineLibName:
-		libFunc = lua.OpenCoroutine
+	// Do not support Other Functions for opening through this method
 	default:
-		fmt.Printf("%s Library Not Available", libName)
+		// fmt.Printf("%s Library Not Available", libName)
 	}
 	ls.Push(ls.NewFunction(libFunc))
 	ls.Push(lua.LString(libName))
