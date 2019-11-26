@@ -2,6 +2,8 @@ package lua
 
 import (
 	"fmt"
+
+	golua "github.com/n-is/gopher-lua"
 )
 
 func ExampleNewLuaScript() {
@@ -25,6 +27,14 @@ func ExampleNewLuaScript() {
 	go func() {
 		ls.AddLib("math", availableFuncs...)
 		ls.AddLib("os", "all")
+
+		f := func(L *golua.LState) int {
+			num := float64(L.CheckNumber(1))
+			L.Push(golua.LNumber(num / 2))
+			return 1
+		}
+		ls.AddFunc("math", "half", f)
+
 		ls.OpenLibs()
 		done <- true
 	}()
