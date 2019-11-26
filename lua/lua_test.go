@@ -12,8 +12,7 @@ import (
 
 func TestNewLuaScript(t *testing.T) {
 	type args struct {
-		src  []byte
-		libs []string
+		src []byte
 	}
 	tests := []struct {
 		name string
@@ -21,7 +20,7 @@ func TestNewLuaScript(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 		// Error Case
-		{"Test1", args{[]byte("sakfj jhiuq3"), []string{}}},
+		{"Test1", args{[]byte("sakfj jhiuq3")}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -31,7 +30,7 @@ func TestNewLuaScript(t *testing.T) {
 					t.Error("Should Have Panicked!!")
 				}
 			}()
-			NewLuaScript(tt.args.src, tt.args.libs...)
+			NewLuaScript(tt.args.src)
 		})
 	}
 }

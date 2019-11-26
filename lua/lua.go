@@ -30,7 +30,7 @@ type LuaScript struct {
 // 	"debug"
 // 	"channel"
 // 	"coroutine"
-func NewLuaScript(src []byte, libs ...string) *LuaScript {
+func NewLuaScript(src []byte) *LuaScript {
 	L := lua.NewState(lua.Options{
 		RegistrySize:        1024 * 20,
 		CallStackSize:       1024,
